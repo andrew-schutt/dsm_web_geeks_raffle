@@ -1,0 +1,34 @@
+<h2>Door Prize Entries</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Job title</th>
+      <th>Twitter handle</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for submission <- @submissions do %>
+    <tr>
+      <td><%= submission.first_name %></td>
+      <td><%= submission.last_name %></td>
+      <td><%= submission.job_title %></td>
+      <td><%= submission.twitter_handle %></td>
+      <td><%= submission.email %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: submission_path(@conn, :show, submission), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: submission_path(@conn, :edit, submission), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: submission_path(@conn, :delete, submission), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New submission", to: submission_path(@conn, :new) %>

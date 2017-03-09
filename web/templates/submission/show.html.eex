@@ -1,0 +1,33 @@
+<h2>Show submission</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @submission.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @submission.last_name %>
+  </li>
+
+  <li>
+    <strong>Job title:</strong>
+    <%= @submission.job_title %>
+  </li>
+
+  <li>
+    <strong>Twitter handle:</strong>
+    <%= @submission.twitter_handle %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @submission.email %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: submission_path(@conn, :edit, @submission) %>
+<%= link "Back", to: submission_path(@conn, :index) %>
