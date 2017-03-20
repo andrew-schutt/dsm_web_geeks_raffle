@@ -20,7 +20,7 @@ defmodule WebgeeksRaffle.SubmissionController do
       {:ok, _submission} ->
         conn
         |> put_flash(:info, "Submission created successfully.")
-        |> redirect(to: submission_path(conn, :index))
+        |> redirect(to: page_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

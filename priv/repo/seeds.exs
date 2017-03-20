@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+WebgeeksRaffle.Repo.delete_all WebgeeksRaffle.User
+
+WebgeeksRaffle.User.changeset(%WebgeeksRaffle.User{}, %{name: "Admin User", email: "admin@example.com", password: "password", password_confirmation: "password"})
+|> WebgeeksRaffle.Repo.insert!

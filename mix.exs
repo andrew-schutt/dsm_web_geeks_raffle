@@ -19,7 +19,7 @@ defmodule WebgeeksRaffle.Mixfile do
   def application do
     [mod: {WebgeeksRaffle, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpoison]]
+                    :phoenix_ecto, :postgrex, :coherence]]
   end
 
   # Specifies which paths to compile per environment.
@@ -30,7 +30,7 @@ defmodule WebgeeksRaffle.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.1"},
+    [{:phoenix, "~> 1.0", override: true},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
@@ -38,7 +38,7 @@ defmodule WebgeeksRaffle.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:httpoison, "~> 0.10.0"}]
+     {:coherence, "~> 0.3"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
