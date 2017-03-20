@@ -18,5 +18,6 @@ defmodule WebgeeksRaffle.Submission do
     struct
     |> cast(params, [:first_name, :last_name, :job_title, :twitter_handle, :email])
     |> validate_required([:first_name, :last_name, :job_title, :twitter_handle])
+    |> unique_constraint([:email, :twitter_handle])
   end
 end
