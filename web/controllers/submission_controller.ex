@@ -1,4 +1,6 @@
 defmodule WebgeeksRaffle.SubmissionController do
+  require IEx
+
   use WebgeeksRaffle.Web, :controller
 
   alias WebgeeksRaffle.Submission
@@ -64,6 +66,10 @@ defmodule WebgeeksRaffle.SubmissionController do
   end
 
   def draw_winner(conn, _params) do
-    
+    submissions = Repo.all(Submission)
+    winner = Enum.random(submissions)
+    conn
+    |> put_flash(:info, "Winner was: #{winner.twitter_handle}")
+    |> redirect(to: submission_path(conn, :index))
   end
 end

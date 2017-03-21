@@ -41,6 +41,7 @@ defmodule WebgeeksRaffle.Router do
   scope "/", WebgeeksRaffle do
     pipe_through :protected
 
+    get "submissions/draw_winner", SubmissionController, :draw_winner
     get "/submissions", SubmissionController, :index
     get "/submissions/:id/edit", SubmissionController, :edit
     get "/submissions/:id", SubmissionController, :show
