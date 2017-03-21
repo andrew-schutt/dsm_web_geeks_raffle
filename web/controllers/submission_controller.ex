@@ -22,7 +22,7 @@ defmodule WebgeeksRaffle.SubmissionController do
         |> put_flash(:info, "Submission created successfully.")
         |> redirect(to: page_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, errors: changeset.errors)
     end
   end
 
@@ -61,5 +61,9 @@ defmodule WebgeeksRaffle.SubmissionController do
     conn
     |> put_flash(:info, "Submission deleted successfully.")
     |> redirect(to: submission_path(conn, :index))
+  end
+
+  def draw_winner(conn, _params) do
+    
   end
 end

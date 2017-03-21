@@ -17,7 +17,9 @@ defmodule WebgeeksRaffle.Submission do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:first_name, :last_name, :job_title, :twitter_handle, :email])
+    |> unique_constraint(:twitter_handle)
+    |> unique_constraint(:email)
     |> validate_required([:first_name, :last_name, :job_title, :twitter_handle])
-    |> unique_constraint([:email, :twitter_handle])
+    |> validate_format(:email, ~r/@/)
   end
 end

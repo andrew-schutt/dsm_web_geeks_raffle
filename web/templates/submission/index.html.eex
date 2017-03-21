@@ -13,6 +13,7 @@
       <th>Twitter handle</th>
       <th>Email</th>
 
+      <th>Actions</th>
       <th></th>
     </tr>
   </thead>
@@ -27,6 +28,8 @@
 
       <td class="text-right">
         <%= link "Edit", to: submission_path(@conn, :edit, submission), class: "btn btn-default btn-xs" %>
+      </td>
+      <td>
         <%= link "Delete", to: submission_path(@conn, :delete, submission), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>

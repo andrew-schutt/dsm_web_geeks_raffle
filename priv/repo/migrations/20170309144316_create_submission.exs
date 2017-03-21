@@ -11,7 +11,8 @@ defmodule WebgeeksRaffle.Repo.Migrations.CreateSubmission do
 
       timestamps()
     end
-    create unique_index(:submissions, [:email, :twitter_handle])
+    create unique_index(:submissions, [:email])
+    create unique_index(:submissions, [:twitter_handle])
 
   end
 end
