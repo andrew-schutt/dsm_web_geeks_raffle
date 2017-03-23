@@ -34,3 +34,10 @@ config :coherence,
   logged_out_url: "/",
   opts: [:authenticatable]
 # %% End Coherence Configuration %%
+
+config :extwitter, :oauth, [
+  consumer_key: "",
+  consumer_secret: "",
+  access_token: "",
+  access_token_secret: ""
+]
