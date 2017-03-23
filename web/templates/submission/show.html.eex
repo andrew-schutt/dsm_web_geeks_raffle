@@ -1,4 +1,4 @@
-<h2>Show submission</h2>
+<h2>Submission for <%= "#{@submission.first_name} #{@submission.last_name}" %></h2>
 
 <ul>
 
@@ -28,6 +28,11 @@
   </li>
 
 </ul>
-
-<%= link "Edit", to: submission_path(@conn, :edit, @submission) %>
-<%= link "Back", to: submission_path(@conn, :index) %>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="form-group">
+      <%= link "Edit", to: submission_path(@conn, :edit, @submission), class: "btn btn-primary" %>
+      <%= link "View All", to: submission_path(@conn, :index), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

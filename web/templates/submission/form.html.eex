@@ -5,31 +5,40 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <div class="col-lg-6">
-      <%= text_input f, :first_name, class: "form-control", placeholder: "First name" %>
-      <%= error_tag f, :first_name %>
-    </div>
-    <div class="col-lg-6">
-      <%= text_input f, :last_name, class: "form-control", placeholder: "Last name" %>
-      <%= error_tag f, :last_name %>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= text_input f, :first_name, class: "form-control", placeholder: "First name" %>
+          <%= error_tag f, :first_name %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= text_input f, :last_name, class: "form-control", placeholder: "Last name" %>
+          <%= error_tag f, :last_name %>
+        </div>
+      </div>
     </div>
 
-    <div class="col-lg-12">
+    <div class="form-group">
       <%= text_input f, :job_title, class: "form-control", placeholder: "Job title" %>
       <%= error_tag f, :job_title %>
     </div>
 
-    <div class="col-lg-6">
-      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">@</span>
-        <%= text_input f, :twitter_handle, class: "form-control", placeholder: "Twitter" %>
-      </div>
-      <%= error_tag f, :twitter_handle %>
-    </div>
-    <div class="col-lg-6">
-      <%= text_input f, :email, class: "form-control", placeholder: "Email adress" %>
-      <%= error_tag f, :email %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <%= text_input f, :twitter_handle, class: "form-control", placeholder: "Twitter" %>
+          </div>
+          <%= error_tag f, :twitter_handle %>
+        </div>
+        <div class="col-lg-6">
+          <%= text_input f, :email, class: "form-control", placeholder: "Email adress" %>
+          <%= error_tag f, :email %>
+        </div>
     </div>
   </div>
 

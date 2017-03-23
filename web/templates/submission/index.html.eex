@@ -1,5 +1,8 @@
-<div class="btn-group" role"group">
-  <%= link("Determine Winner", to: submission_path(@conn, :draw_winner), class: "btn btn-primary") %>
+<div class="row">
+  <div class="form-group">
+    <%= link("Determine Winner", to: submission_path(@conn, :draw_winner), class: "btn btn-primary") %>
+    <%= link "New submission", to: submission_path(@conn, :new), class: "btn btn-primary" %>
+  </div>
 </div>
 
 <h2>Door Prize Entries</h2>
@@ -36,5 +39,3 @@
 <% end %>
   </tbody>
 </table>
-
-<%= link "New submission", to: submission_path(@conn, :new) %>
