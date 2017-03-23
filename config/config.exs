@@ -36,8 +36,8 @@ config :coherence,
 # %% End Coherence Configuration %%
 
 config :extwitter, :oauth, [
-  consumer_key: "E9whmsGKKn5D4jHD9wS0VMv7o",
-  consumer_secret: "cMmzqdJ3sEGpNuo4IV0gnQPBOBx8ZTvaEm4wuRX4WoBypBu4IS",
-  access_token: "839907762792456192-p9ymxY4X1ptNnDA2qdAIDIy6UpiX0Bp",
-  access_token_secret: "xYeZ7OwH8LbvXXI4YYcwUO2MsX2LiYlO9mYBX52BHHmkq"
+  consumer_key: "",
+  consumer_secret: "",
+  access_token: "",
+  access_token_secret: ""
 ]
