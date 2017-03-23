@@ -12,5 +12,5 @@
 
 WebgeeksRaffle.Repo.delete_all WebgeeksRaffle.User
 
-WebgeeksRaffle.User.changeset(%WebgeeksRaffle.User{}, %{name: "Admin User", email: "admin@example.com", password: "password", password_confirmation: "password"})
+WebgeeksRaffle.User.changeset(%WebgeeksRaffle.User{}, %{name: "Admin User", email: "andrew@interactiveshift.com", password: "password", password_confirmation: "password"})
 |> WebgeeksRaffle.Repo.insert!
