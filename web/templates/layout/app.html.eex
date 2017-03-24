@@ -15,7 +15,7 @@
     <div class="container">
       <%= link to: "/" do %>
         <header class="header">
-          <span class="logo"></span>
+          <img src="<%= static_path(@conn, "/images/dsm-webgeeks-2017-social-event.jpg") %>">
         </header>
       <% end %>
 

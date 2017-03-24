@@ -1,6 +1,4 @@
 defmodule WebgeeksRaffle.SubmissionController do
-  require IEx
-
   use WebgeeksRaffle.Web, :controller
 
   alias WebgeeksRaffle.Submission
@@ -42,7 +40,6 @@ defmodule WebgeeksRaffle.SubmissionController do
   def update(conn, %{"id" => id, "submission" => submission_params}) do
     submission = Repo.get!(Submission, id)
     changeset = Submission.changeset(submission, submission_params)
-
     case Repo.update(changeset) do
       {:ok, submission} ->
         conn
@@ -66,10 +63,22 @@ defmodule WebgeeksRaffle.SubmissionController do
   end
 
   def draw_winner(conn, _params) do
-    submissions = Repo.all(Submission)
-    winner = Enum.random(submissions)
-    conn
-    |> put_flash(:info, "Winner was: #{winner.twitter_handle}")
-    |> redirect(to: submission_path(conn, :index))
+    submissions = Repo.all(from subs in Submission, where: subs.winner == false)
+    if Enum.empty?(submissions) do
+      conn
+      |> put_flash(:info, "No eligible winners :(")
+      |> redirect(to: submission_path(conn, :index))
+    else
+      winning_submission = Enum.random(submissions)
+
+      Submission.changeset(winning_submission, %{winner: true})
+      |> Repo.update
+
+      ExTwitter.update("Yo! @#{winning_submission.twitter_handle}")
+
+      conn
+      |> put_flash(:info, "Winner was: #{winning_submission.first_name} #{winning_submission.last_name} - #{winning_submission.twitter_handle}")
+      |> redirect(to: submission_path(conn, :index))
+    end
   end
 end

@@ -43,6 +43,6 @@
   </div>
 
   <div class="col-lg-12">
-    <%= submit "Enter Now", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

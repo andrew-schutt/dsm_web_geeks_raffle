@@ -15,6 +15,7 @@
       <th>Job title</th>
       <th>Twitter handle</th>
       <th>Email</th>
+      <th>Winner</th>
 
       <th>Actions</th>
       <th></th>
@@ -28,6 +29,7 @@
       <td><%= submission.job_title %></td>
       <td><%= submission.twitter_handle %></td>
       <td><%= submission.email %></td>
+      <td><%= submission.winner %></td>
 
       <td class="text-right">
         <%= link "Edit", to: submission_path(@conn, :edit, submission), class: "btn btn-default btn-xs" %>
