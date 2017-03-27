@@ -80,7 +80,7 @@ defmodule WebgeeksRaffle.SubmissionController do
       DoubleSubmission.changeset(winning_submission, %{winner: true})
       |> Repo.update
 
-      # ExTwitter.update("Congrats @#{winning_submission.twitter_handle}! You are a raffle winner! #dsmwebgeekfest")
+      ExTwitter.update("Congrats @#{winning_submission.twitter_handle}! You are a raffle winner! #dsmwebgeekfest")
 
       conn
       |> put_flash(:info, "Winner was: #{winning_submission.first_name} #{winning_submission.last_name} - #{winning_submission.twitter_handle}")
