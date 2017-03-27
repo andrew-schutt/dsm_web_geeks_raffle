@@ -1,6 +1,7 @@
 <div class="row">
   <div class="form-group">
     <%= link "New double submission", to: double_submission_path(@conn, :new), class: "btn btn-primary" %>
+    <%= link "Regular submissions", to: submission_path(@conn, :index), class: "btn btn-primary" %>
   </div>
 </div>
 

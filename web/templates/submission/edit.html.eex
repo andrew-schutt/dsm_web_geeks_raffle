@@ -1,4 +1,56 @@
 <h2>Edit submission</h2>
 
-<%= render "form.html", changeset: @changeset,
-                        action: submission_path(@conn, :update, @submission) %>
+<%= form_for @changeset, submission_path(@conn, :update, @submission), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= text_input f, :first_name, class: "form-control", placeholder: "First name" %>
+          <%= error_tag f, :first_name %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= text_input f, :last_name, class: "form-control", placeholder: "Last name" %>
+          <%= error_tag f, :last_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= text_input f, :job_title, class: "form-control", placeholder: "Job title" %>
+      <%= error_tag f, :job_title %>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">@</span>
+            <%= text_input f, :twitter_handle, class: "form-control", placeholder: "Twitter" %>
+          </div>
+          <%= error_tag f, :twitter_handle %>
+        </div>
+        <div class="col-lg-6">
+          <%= text_input f, :email, class: "form-control", placeholder: "Email adress" %>
+          <%= error_tag f, :email %>
+        </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= radio_button f, :winner, "winner" %>
+    <%= label f, "Winner?" %>
+    <%= error_tag f, :winner %>
+  </div>
+
+  <div class="col-lg-12">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

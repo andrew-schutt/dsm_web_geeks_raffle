@@ -2,6 +2,7 @@
   <div class="form-group">
     <%= link("Determine Winner", to: submission_path(@conn, :draw_winner), class: "btn btn-primary") %>
     <%= link "New submission", to: submission_path(@conn, :new), class: "btn btn-primary" %>
+    <%= link "Double submissions", to: double_submission_path(@conn, :index), class: "btn btn-primary" %>
   </div>
 </div>
 
