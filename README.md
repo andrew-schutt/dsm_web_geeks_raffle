@@ -17,10 +17,41 @@ Simple initial setup for this application:
 
   * ```mix phoenix.new webgeeks_raffle```
   * ```cd webgeeks_raffle```
+  * ```mix ecto.create``` (be sure to have your local postgres user and password handy)
   * ```mix phoenix.gen.html Submission submissions first_name:string last_name:string job_title:string twitter_handle:string email:string```
-  * ```mix ecto.create``` (database configuration is needed before this step)
-  * ```mix phoenix.server```
+  * add ```resources "/submissions", SubmissionController``` in ```web/router.ex```. Here is an example of what needs to be done:
+  ```
+  defmodule HelloWorld.Router do
+    use HelloWorld.Web, :router
 
+    pipeline :browser do
+      plug :accepts, ["html"]
+      plug :fetch_session
+      plug :fetch_flash
+      plug :protect_from_forgery
+      plug :put_secure_browser_headers
+    end
+
+    pipeline :api do
+      plug :accepts, ["json"]
+    end
+
+    scope "/", HelloWorld do
+      pipe_through :browser # Use the default browser stack
+
+      resources "/submissions", SubmissionController
+      get "/", PageController, :index
+    end
+
+    # Other scopes may use custom stacks.
+    # scope "/api", HelloWorld do
+    #   pipe_through :api
+    # end
+  end
+```
+  * ```mix ecto.migrate```
+  * ```mix phoenix.server```
+  * in your browser navigate to ```localhost:4000/submissions```
 
 # WebgeeksRaffle
 
