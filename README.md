@@ -13,11 +13,12 @@
   * ```brew install node``` (node >= 5.0.0 is needed)
   * ```brew install postgresql```
 
-### Simple initial setup for this application:
+### Initial setup for this application:
 
   * ```mix phoenix.new webgeeks_raffle```
   * ```cd webgeeks_raffle```
-  * ```mix ecto.create``` (be sure to have your local postgres user and password handy)
+  * Update your ```config/dev.exs``` with Postgres user and password info
+  * ```mix ecto.create```
   * ```mix phoenix.gen.html Submission submissions first_name:string last_name:string job_title:string twitter_handle:string email:string```
   * add ```resources "/submissions", SubmissionController``` in ```web/router.ex```. Here is an example of what needs to be done:
   ```
@@ -50,10 +51,11 @@
   end
 ```
   * ```mix ecto.migrate```
+  * ```npm install```
   * ```mix phoenix.server```
-  * in your browser navigate to ```localhost:4000/submissions```
+  * in your browser navigate to [`localhost:4000`](http://localhost:4000)
 
-### Additional setup:
+### Application customization:
 
   * Add `coherence` and `extwitter` to `mix.exs`
     * https://github.com/smpallen99/coherence <- login and session handling
@@ -64,19 +66,6 @@
     * Create new application
     * Add Phoenix build packs
     * Custom setup for app within Heroku
-
-# WebgeeksRaffle
-
-To start your Phoenix app:
-
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
 ## Learn more
 
