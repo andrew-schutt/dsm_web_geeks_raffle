@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="form-group">
+    <%= link "New double submission", to: double_submission_path(@conn, :new), class: "btn btn-primary" %>
+  </div>
+</div>
+
+<h2>Secondary Door Prize Entries</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Job title</th>
+      <th>Twitter handle</th>
+      <th>Email</th>
+      <th>Winner</th>
+
+      <th>Actions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for double_submission <- @double_submissions do %>
+    <tr>
+      <td><%= double_submission.first_name %></td>
+      <td><%= double_submission.last_name %></td>
+      <td><%= double_submission.job_title %></td>
+      <td><%= double_submission.twitter_handle %></td>
+      <td><%= double_submission.email %></td>
+      <td><%= double_submission.winner %></td>
+
+      <td class="text-right">
+        <%= link "Edit", to: double_submission_path(@conn, :edit, double_submission), class: "btn btn-default btn-xs" %>
+      </td>
+      <td>
+        <%= link "Delete", to: double_submission_path(@conn, :delete, double_submission), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

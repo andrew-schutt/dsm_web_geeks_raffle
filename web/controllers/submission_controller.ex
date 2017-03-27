@@ -2,6 +2,7 @@ defmodule WebgeeksRaffle.SubmissionController do
   use WebgeeksRaffle.Web, :controller
 
   alias WebgeeksRaffle.Submission
+  alias WebgeeksRaffle.DoubleSubmission
 
   def index(conn, _params) do
     submissions = Repo.all(Submission)
@@ -63,7 +64,9 @@ defmodule WebgeeksRaffle.SubmissionController do
   end
 
   def draw_winner(conn, _params) do
-    submissions = Repo.all(from subs in Submission, where: subs.winner == false)
+    subs = Repo.all(from subs in Submission, where: subs.winner == false)
+    double_subs = Repo.all(from dbl_subs in DoubleSubmission, where: dbl_subs.winner == false)
+    submissions = Enum.concat(subs, double_subs)
     if Enum.empty?(submissions) do
       conn
       |> put_flash(:info, "No eligible winners :(")
@@ -74,7 +77,10 @@ defmodule WebgeeksRaffle.SubmissionController do
       Submission.changeset(winning_submission, %{winner: true})
       |> Repo.update
 
-      ExTwitter.update("Congrats @#{winning_submission.twitter_handle}! You are a raffle winner! #dsmwebgeekfest")
+      DoubleSubmission.changeset(winning_submission, %{winner: true})
+      |> Repo.update
+
+      # ExTwitter.update("Congrats @#{winning_submission.twitter_handle}! You are a raffle winner! #dsmwebgeekfest")
 
       conn
       |> put_flash(:info, "Winner was: #{winning_submission.first_name} #{winning_submission.last_name} - #{winning_submission.twitter_handle}")

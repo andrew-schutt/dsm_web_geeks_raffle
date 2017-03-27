@@ -1,0 +1,38 @@
+<h2>Double Submission for <%= "#{@double_submission.first_name} #{@double_submission.last_name}" %></h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @double_submission.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @double_submission.last_name %>
+  </li>
+
+  <li>
+    <strong>Job title:</strong>
+    <%= @double_submission.job_title %>
+  </li>
+
+  <li>
+    <strong>Twitter handle:</strong>
+    <%= @double_submission.twitter_handle %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @double_submission.email %>
+  </li>
+
+</ul>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="form-group">
+      <%= link "Edit", to: double_submission_path(@conn, :edit, @double_submission), class: "btn btn-primary" %>
+      <%= link "View All", to: double_submission_path(@conn, :index), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

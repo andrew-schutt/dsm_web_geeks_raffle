@@ -48,5 +48,7 @@ defmodule WebgeeksRaffle.Router do
     patch "/submissions/:id", SubmissionController, :update
     put "/submissions/:id", SubmissionController, :update
     delete "/submissions/:id", SubmissionController, :delete
+
+    resources "/double_submissions", DoubleSubmissionController
   end
 end

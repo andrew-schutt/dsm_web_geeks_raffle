@@ -1,0 +1,4 @@
+<h2>Edit double submission</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: double_submission_path(@conn, :update, @double_submission) %>
