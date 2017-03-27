@@ -37,7 +37,7 @@ defmodule WebgeeksRaffle.DoubleSubmissionController do
     render(conn, "edit.html", double_submission: double_submission, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "submission" => double_submission_params}) do
+  def update(conn, %{"id" => id, "double_submission" => double_submission_params}) do
     double_submission = Repo.get!(DoubleSubmission, id)
     changeset = DoubleSubmission.changeset(double_submission, double_submission_params)
     case Repo.update(changeset) do

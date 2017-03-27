@@ -45,7 +45,7 @@
   </div>
 
   <div class="form-group">
-    <%= radio_button f, :winner, "winner" %>
+    <%= checkbox f, :winner %>
     <%= label f, "Winner?" %>
     <%= error_tag f, :winner %>
   </div>
