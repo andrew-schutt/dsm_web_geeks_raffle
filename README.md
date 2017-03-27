@@ -1,19 +1,19 @@
 # Install (Mac OS X)
 
-Install Elixir/Erlang:
+### Install Elixir/Erlang:
 
   * ```brew update```
   * ```brew install elixir```
   * For other systems -> http://elixir-lang.org/install.html#distributions
 
-Install Phoenix and dependencies:
+### Install Phoenix and dependencies:
 
   * Install [Hex](https://hex.pm/) ```mix local.hex```
   * ```mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez```
   * ```brew install node``` (node >= 5.0.0 is needed)
   * ```brew install postgresql```
 
-Simple initial setup for this application:
+### Simple initial setup for this application:
 
   * ```mix phoenix.new webgeeks_raffle```
   * ```cd webgeeks_raffle```
@@ -53,7 +53,7 @@ Simple initial setup for this application:
   * ```mix phoenix.server```
   * in your browser navigate to ```localhost:4000/submissions```
 
-Additional setup:
+### Additional setup:
 
   * Add `coherence` and `extwitter` to `mix.exs`
     * https://github.com/smpallen99/coherence <- login and session handling
