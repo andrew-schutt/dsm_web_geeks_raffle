@@ -53,6 +53,18 @@ Simple initial setup for this application:
   * ```mix phoenix.server```
   * in your browser navigate to ```localhost:4000/submissions```
 
+Additional setup:
+
+  * Add `coherence` and `extwitter` to `mix.exs`
+    * https://github.com/smpallen99/coherence <- login and session handling
+    * https://github.com/parroty/extwitter <- Twitter API interface
+  * Deploy to Heroku (http://www.phoenixframework.org/docs/heroku)
+    * Setup Heroku account (https://signup.heroku.com/?c=70130000001x9jEAAQ)
+    * Install Heroku command line tool
+    * Create new application
+    * Add Phoenix build packs
+    * Custom setup for app within Heroku
+
 # WebgeeksRaffle
 
 To start your Phoenix app:
