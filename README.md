@@ -1,3 +1,27 @@
+# Install (Mac OS X)
+
+Install Elixir/Erlang:
+
+  * ```brew update```
+  * ```brew install elixir```
+  * For other systems -> http://elixir-lang.org/install.html#distributions
+
+Install Phoenix and dependencies:
+
+  * Install [Hex](https://hex.pm/) ```mix local.hex```
+  * ```mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez```
+  * ```brew install node``` (node >= 5.0.0 is needed)
+  * ```brew install postgresql```
+
+Simple initial setup for this application:
+
+  * ```mix phoenix.new webgeeks_raffle```
+  * ```cd webgeeks_raffle```
+  * ```mix phoenix.gen.html Submission submissions first_name:string last_name:string job_title:string twitter_handle:string email:string```
+  * ```mix ecto.create``` (database configuration is needed before this step)
+  * ```mix phoenix.server```
+
+
 # WebgeeksRaffle
 
 To start your Phoenix app:

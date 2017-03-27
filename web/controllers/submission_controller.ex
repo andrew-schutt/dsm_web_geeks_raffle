@@ -69,12 +69,12 @@ defmodule WebgeeksRaffle.SubmissionController do
       |> put_flash(:info, "No eligible winners :(")
       |> redirect(to: submission_path(conn, :index))
     else
-      winning_submission = Enum.random(submissions)
 
-      Submission.changeset(winning_submission, %{winner: true})
+      winning_submission = Enum.random(submissions)
+      |> Submission.changeset(%{winner: true})
       |> Repo.update
 
-      ExTwitter.update("Yo! @#{winning_submission.twitter_handle}")
+      ExTwitter.update("Congrats! @#{winning_submission.twitter_handle}")
 
       conn
       |> put_flash(:info, "Winner was: #{winning_submission.first_name} #{winning_submission.last_name} - #{winning_submission.twitter_handle}")
